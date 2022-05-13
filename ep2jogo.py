@@ -59,9 +59,12 @@ def sorteia_letra(pal,let):
 
         return random.choice(listatop)
 
-EARTH_RADIUS = 6371
+#funcao para saber a cor
 
-DADOS = {
+
+raio = 6371
+
+d1 = {
   "asia": {
     "afeganistao": {
       "area": 652230,
@@ -3876,8 +3879,7 @@ DADOS = {
   }
 }
 
-
-
+dados = normaliza(d1)
 
 
 
@@ -3897,24 +3899,67 @@ while jogando == False:
 
 if jogando == True:
     while jogando == True:
+
+    
         saldo = 20
         print('Bem vindo ao jogo')
         print('comandos:')
         print('     dica - Entra no mercado de dicas')
         print('     desisto - desiste da rodada')
         print('     inventario - exibe sua posição')
+        
 
         print('um país foi escolhido, tente adivinhar qual é')
         print('você tem {} tentativas'.format(saldo))
 
+        
+
+
+
+
         while saldo > 20:
-            pergunta = input('')
-            if pergunta == '':
+            país = sorteia_pais(dados)
+            ordem  = []
+            jafoi = []
+
+
+            
+            pergunta = input('Qual é seu palpite ?')
+            if pergunta == país:
+                print('Você Acertou !')
+            else:
+                if pergunta in dados:
+                    if pergunta not in jafoi:
+                        jafoi.append(pergunta)
+                        dist = haversine(raio, dados[pergunta]["geo"]["latitude"], dados[pergunta]["geo"]["longitude"], dados[país]["geo"]["latitude"], dados[país]["geo"]["longitude"])
+                        ordem = adiciona_em_ordem(pergunta, dist, ordem)
+                        for ped in ordem:
+                            print(ped[0] + ':' + '{}'.format(ped[1]))
+                        saldo -= 1
+                        print('você tem {} tentativas'.format(saldo))
+                    elif pergunta in jafoi:
+                        print('Esse país ja foi')
+                    
+                else:
+                    print('eu não conheço esse país')
+                    
+
+
+                    
+
+                    
+
+
+
+
+
+
+
                 
                 pdicas = input()
         
 
-    
+     
 
 
 

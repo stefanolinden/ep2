@@ -8,3 +8,13 @@ def normaliza(d1):
             d2[pais]['continente'] = cont
     return d2
 
+#Sorteando Países
+import random
+
+def sorteia_pais(d1):
+    listatop = list(d1.keys())
+    ps = random.choice(listatop)
+
+    return ps
+    
+    

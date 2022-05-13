@@ -16,5 +16,26 @@ def sorteia_pais(d1):
     ps = random.choice(listatop)
 
     return ps
-    
+
+#dist haversine
+from math import*
+def haversine(r, la, lo, la1 ,lo1):
+    dist = 2*r*asin((sin(((la1 - la)/2)*(pi/180))**2 + cos(la*(pi/180)) * sin(((lo1 - lo)/2)*(pi/180))**2 * cos(la1*(pi/180)))**0.5)
+
+    return dist
+
+#adiciona em ordem
+def adiciona_em_ordem(paises,dist,lista):
+    x=0
+    for i in range (0, len (lista)):
+        if lista[i][1] < dist:
+            x = i + 1
+    lista. insert (x, [paises,dist])
+    return lista
+
+
+
+
+
+
     

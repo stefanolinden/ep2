@@ -3934,6 +3934,8 @@ while jogando == False:
                             print(ped[0] + ' : ' + '{:.2f} km'.format(ped[1]))
                         saldo -= 1
                         print('você tem {} tentativas'.format(saldo))
+                        print(pergunta)
+                        print(país)
                     else:
                         print('Esse país ja foi')
                     

@@ -3896,17 +3896,13 @@ while jogando == False:
     
     if strt == 'start':
         jogando = True
-
-if jogando == True:
-    while jogando == True:
-
-    
         saldo = 20
         print('Bem vindo ao jogo')
         print('comandos:')
         print('     dica - Entra no mercado de dicas')
         print('     desisto - desiste da rodada')
         print('     inventario - exibe sua posição')
+        país = sorteia_pais(dados)
         
 
         print('um país foi escolhido, tente adivinhar qual é')
@@ -3917,8 +3913,8 @@ if jogando == True:
 
 
 
-        while saldo > 20:
-            país = sorteia_pais(dados)
+        while saldo  > 0:
+            
             ordem  = []
             jafoi = []
 
@@ -3927,6 +3923,7 @@ if jogando == True:
             pergunta = input('Qual é seu palpite ?')
             if pergunta == país:
                 print('Você Acertou !')
+                saldo = -9999
             else:
                 if pergunta in dados:
                     if pergunta not in jafoi:
@@ -3934,10 +3931,10 @@ if jogando == True:
                         dist = haversine(raio, dados[pergunta]["geo"]["latitude"], dados[pergunta]["geo"]["longitude"], dados[país]["geo"]["latitude"], dados[país]["geo"]["longitude"])
                         ordem = adiciona_em_ordem(pergunta, dist, ordem)
                         for ped in ordem:
-                            print(ped[0] + ':' + '{}'.format(ped[1]))
+                            print(ped[0] + ' : ' + '{:.2f} km'.format(ped[1]))
                         saldo -= 1
                         print('você tem {} tentativas'.format(saldo))
-                    elif pergunta in jafoi:
+                    else:
                         print('Esse país ja foi')
                     
                 else:
@@ -3956,7 +3953,12 @@ if jogando == True:
 
 
                 
-                pdicas = input()
+            
+
+
+
+    
+
         
 
      

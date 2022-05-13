@@ -3884,31 +3884,35 @@ DADOS = {
 
 
 
-saldo = 20
+
 jogando = False 
 
 
 while jogando == False:
-    print('Bem vindo ao jogo digite start para começar')
-    strt = input('')
+    print('Bem vindo ao jogo digite start para começar ')
+    strt = input()
+    
     if strt == 'start':
-        jogando == True
+        jogando = True
 
-while jogando == True:
-    print('Bem vindo ao jogo')
-    print('comandos:')
-    print('     dica - Entra no mercado de dicas')
-    print('     desisto - desiste da rodada')
-    print('     inventario - exibe sua posição')
+if jogando == True:
+    while jogando == True:
+        saldo = 20
+        print('Bem vindo ao jogo')
+        print('comandos:')
+        print('     dica - Entra no mercado de dicas')
+        print('     desisto - desiste da rodada')
+        print('     inventario - exibe sua posição')
 
-    print('um país foi escolhido, tente adivinhar qual é')
-    print('você tem {} tentativas'.format(saldo))
+        print('um país foi escolhido, tente adivinhar qual é')
+        print('você tem {} tentativas'.format(saldo))
 
-    while saldo > 20:
-        pergunta = input('')
-        if pergunta == 'dica':
-            pdicas = input('')
-        elif pergunta     #falta configurar os países
+        while saldo > 20:
+            pergunta = input('')
+            if pergunta == '':
+                
+                pdicas = input()
+        
 
     
 

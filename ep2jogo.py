@@ -33,6 +33,35 @@ def adiciona_em_ordem(paises,dist,lista):
     lista. insert (x, [paises,dist])
     return lista
 
+#esta na lista ?
+def esta_na_lista(paises,listassa):
+    x = 0
+    for i in range (len(listassa)):
+        if paises == listassa[i][0]:
+            x += 1
+
+    if x > 0:
+        return True
+    else: 
+        return False
+
+#sorteio letras
+import random 
+
+def sorteia_letra(pal,let):
+
+    listatop = []
+    x = ['.', ',', '-', ';', ' ']
+
+    for i in range(len(pal)):
+        if pal[i] not in x and pal[i] not in let:
+            listatop.append(pal[i])
+
+        return random.choice(listatop)
+
+
+
+
 
 
 

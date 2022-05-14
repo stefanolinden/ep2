@@ -3908,8 +3908,8 @@ while jogando == False:
         print('comandos:')
         print('     dica - Entra no mercado de dicas')
         print('     desisto - desiste da rodada')
-        print('     inventario - exibe sua posição')
         país = sorteia_pais(dados)
+    
         
 
         print('um país foi escolhido, tente adivinhar qual é')
@@ -4002,8 +4002,10 @@ while jogando == False:
                         saldo -=7
                   
 
-                  else:
+                  elif dica == '0':
                         print('veio só dar uma olhadinha né ?')
+                  else:
+                    print ('Opção Inválida')
                         
                   dicasusadas.append(dica)
 
@@ -4029,7 +4031,8 @@ while jogando == False:
                 else:
                     print('eu não conheço esse país')
                     
-                
+    else:
+      print('Digite start e não "{}"'.format(strt))            
                     
 
 

@@ -1,3 +1,5 @@
+# Stefano Lindenbojm e Ricardo Pena
+
 #Normalizando Base de Países
 def normaliza(d1):
     d2 = {}
@@ -3908,6 +3910,7 @@ while jogando == False:
         print('comandos:')
         print('     dica - Entra no mercado de dicas')
         print('     desisto - desiste da rodada')
+        print('     saldo - Mostra quantas tentativas te restam')
         país = sorteia_pais(dados)
     
         
@@ -3949,7 +3952,7 @@ while jogando == False:
 
                 elif pergunta == 'dica':
 
-                  dica = input(   "Seu saldo é {}\nMercado de Dicas   *O GERENTE FICOU MALUCO*\n     tipo de dica   |  preço da dica \n1. Cor da bandeira  |  4 tentativas\n2. Letra da capital |  3 tentativas\n3. Área do país     |  6 tentativas\n4. População do pais|  5 tentativas\n5. Continente       |  7 tentativas\n0. Continuar sem dica      \nEscolha sua opção [0|1|2|3|4|5]: ".format(saldo))
+                  dica = input(   "Seu saldo é {} tentativas\nMercado de Dicas   *O GERENTE FICOU MALUCO*\n     tipo de dica   |  preço da dica \n1. Cor da bandeira  |  4 tentativas\n2. Letra da capital |  3 tentativas\n3. Área do país     |  6 tentativas\n4. População do pais|  5 tentativas\n5. Continente       |  7 tentativas\n0. Continuar sem dica      \nEscolha sua opção [0|1|2|3|4|5]: ".format(saldo))
                   if dica in dicasusadas:
                       print('Essa dica ja foi')
 
@@ -4013,6 +4016,9 @@ while jogando == False:
                   print(' 💀 Game Over 💀 \n O país era{}'.format(país))
                   jogando = False
                   saldo = -9999
+
+                elif pergunta == 'saldo':
+                  print('você tem {} tentativas'.format(saldo))
 
                 elif saldo <= 0:
                   print('  💀 Game Over 💀 \n O país era{}'.format(país))

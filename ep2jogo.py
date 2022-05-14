@@ -3904,6 +3904,8 @@ jogando = False
 while jogando == False:
     print('Bem vindo ao jogo digite start para começar ')
     strt = input()
+
+                  
     
     if strt == 'start':
         jogando = True
@@ -3928,17 +3930,22 @@ while jogando == False:
         jafoi = []
         dicasusadas = []
         minhasdicas = []
+        suastent = 0
 
-
+        
+                  
         while saldo  > 0:
+          
             
         
 
 
             
             pergunta = input('Qual é seu palpite ? ')
+            
             if pergunta == país:
-                print( '👏 Parabéns você acertou em {} tentativas! 👏'.format(saldo))
+                suastent += 1
+                print(  '👏 Parabéns você acertou em {} tentativas! 👏'.format(suastent))
                 saldo = -9999
                 jogando = False
             else:
@@ -3948,16 +3955,18 @@ while jogando == False:
                         dist = haversine(raio, dados[pergunta]["geo"]["latitude"], dados[pergunta]["geo"]["longitude"], dados[país]["geo"]["latitude"], dados[país]["geo"]["longitude"])
                         ordem = adiciona_em_ordem(pergunta, dist, ordem)
                         for ped in ordem:
-                            print(ped[0] + ' : ' + '{:.2f} km'.format(ped[1]))
+                            print(ped[0] + ' : ' + '{:.0f} km'.format(ped[1]))
                         saldo -= 1
+                        suastent +=1
                         print('você tem {} tentativas'.format(saldo))
+                        
                         
                     else:
                         print('Esse país ja foi')
 
                 elif pergunta == 'dica':
 
-                  dica = input(   "Seu saldo é {} tentativas\nMercado de Dicas   *O GERENTE FICOU MALUCO*\n     tipo de dica   |  preço da dica \n1. Cor da bandeira  |  4 tentativas\n2. Letra da capital |  3 tentativas\n3. Área do país     |  6 tentativas\n4. População do pais|  5 tentativas\n5. Continente       |  7 tentativas\n0. Continuar sem dica      \nEscolha sua opção [0|1|2|3|4|5]: ".format(saldo))
+                  dica = input(       "Seu saldo é {} tentativas\n        Mercado de Dicas   *O GERENTE FICOU MALUCO*\n             tipo de dica  |   preço da dica \n       1. Cor da bandeira  |  4 tentativas\n       2. Letra da capital |  3 tentativas\n       3. Área do país     |  6 tentativas\n       4. População do pais|  5 tentativas\n       5. Continente       |  7 tentativas\n       0. Continuar sem dica      \n  Escolha sua opção [0|1|2|3|4|5]: ".format(saldo))
                   if dica in dicasusadas:
                       print('Essa dica ja foi')
 
@@ -3978,7 +3987,7 @@ while jogando == False:
                         print('saldo insuficiente')
                       else:
                         letra = sorteia_letra(país,['.', ',', '-', ';', ' '])                       
-                        print('sua letra é: {}'.format(letra))
+                        print('A letra da capital é: {}'.format(letra))
                         minhasdicas.append('sua letra é: {}'.format(letra))
                         saldo -=3
 
@@ -3992,6 +4001,7 @@ while jogando == False:
                         print('A área do país é de {} km quadrados'.format(áreap))
                         minhasdicas.append('A área do país é de {} km quadrados'.format(áreap))
                         saldo -= 6
+                  
                   elif dica == '4':
                       custo = 5
 
@@ -4001,7 +4011,7 @@ while jogando == False:
                       else:
                         pop = str(dados[país]['populacao'])
                         print('O país possui {} habitantes'.format(pop))
-                        minhasdicas.append('A área do país é de {} km quadrados'.format(áreap))
+                        minhasdicas.append('O país possui {} habitantes'.format(pop))
                         saldo -=5
 
                   elif dica == '5':
@@ -4024,7 +4034,7 @@ while jogando == False:
                   dicasusadas.append(dica)
 
                 elif pergunta == 'desisto':
-                  print(' 💀 Game Over 💀 \n O país era{}'.format(país))
+                  print('       💀 Game Over 💀 \n      O país era {}'.format(país))
                   jogando = False
                   saldo = -9999
 
@@ -4043,26 +4053,39 @@ while jogando == False:
                   print('     desisto - desiste da rodada')
                   print('     saldo - Mostra quantas tentativas te restam')
                   print('     creditos - Faz uma homenagem aos desenvolvedores e seu mestre')
-                elif saldo <= 0:
-                  print('  💀 Game Over 💀 \n O país era{}'.format(país))
-                  jogando = False
-                  saldo = -9999
+                
+                elif pergunta == 'lagostin':
+                  saldo = 9999999999999
+                  print('trapaça ativada ! +9999999999999 tentativas')
+
+                elif pergunta == 'uddlr':
+                  print(país)
+        
+                
+
+                
                 
 
 
                     
 
                         
-
-                
-                
-                
                 else:
                     print('eu não conheço esse país')
-                    
+                
+            if saldo <= 0:
+
+                  print('       Suas tentativas acabaram')
+                  print('           💀 Game Over 💀 \n        O país era {}'.format(país))
+                  
+                  saldo = -9999
+                  jogando = False    
+                
+                
     else:
       print('Digite start e não "{}"'.format(strt))            
-                    
+
+                 
 
 
                     

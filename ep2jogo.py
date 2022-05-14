@@ -3977,8 +3977,7 @@ while jogando == False:
                       if saldo - custo < 0:
                         print('saldo insuficiente')
                       else:
-                        letra = sorteia_letra(país,['.', ',', '-', ';', ' '])
-                        minhasdicas.append('sua letra é: {}'.format(letra))
+                        letra = sorteia_letra(país,['.', ',', '-', ';', ' '])                       
                         print('sua letra é: {}'.format(letra))
                         minhasdicas.append('sua letra é: {}'.format(letra))
                         saldo -=3

@@ -1,5 +1,7 @@
 # Stefano Lindenbojm e Ricardo Pena
 
+
+
 #Normalizando Base de Países
 def normaliza(d1):
     d2 = {}
@@ -3910,7 +3912,7 @@ while jogando == False:
         print('comandos:')
         print('     dica - Entra no mercado de dicas')
         print('     desisto - Desiste da rodada')
-        print('     saldo - Mostra quantas tentativas te restam')
+        print('     inventario - Mostra quantas tentativas te restam e as dicas até então obtidas')
         print('     creditos - Faz uma homenagem aos desenvolvedores e seu mestre')
         print('     comandos - Exibe estes comandos novamente')
         país = sorteia_pais(dados)
@@ -3925,6 +3927,7 @@ while jogando == False:
         ordem  = []
         jafoi = []
         dicasusadas = []
+        minhasdicas = []
 
 
         while saldo  > 0:
@@ -3964,7 +3967,8 @@ while jogando == False:
                       print('saldo insuficiente')
                     else:
                       cor = maiorcor(dados[país]['bandeira'],país)
-                      print(cor)
+                      print('A cor e proporção dessa bandeira são de {}'.format(cor))
+                      minhasdicas.append('A cor e proporção dessa bandeira são de {}'.format(cor))
                       saldo -=4
                     
                     
@@ -3974,8 +3978,11 @@ while jogando == False:
                         print('saldo insuficiente')
                       else:
                         letra = sorteia_letra(país,['.', ',', '-', ';', ' '])
+                        minhasdicas.append('sua letra é: {}'.format(letra))
                         print('sua letra é: {}'.format(letra))
+                        minhasdicas.append('sua letra é: {}'.format(letra))
                         saldo -=3
+
                   elif dica == '3':
                       custo = 6
                       if saldo - custo < 0:
@@ -3984,6 +3991,7 @@ while jogando == False:
                       else:
                         áreap = str(dados[país]['area'])
                         print('A área do país é de {} km quadrados'.format(áreap))
+                        minhasdicas.append('A área do país é de {} km quadrados'.format(áreap))
                         saldo -= 6
                   elif dica == '4':
                       custo = 5
@@ -3994,6 +4002,7 @@ while jogando == False:
                       else:
                         pop = str(dados[país]['populacao'])
                         print('O país possui {} habitantes'.format(pop))
+                        minhasdicas.append('A área do país é de {} km quadrados'.format(áreap))
                         saldo -=5
 
                   elif dica == '5':
@@ -4004,6 +4013,7 @@ while jogando == False:
                       else:
                         cont = str(dados[país]['continente'])
                         print('O país está no continente *{}*'.format(cont))
+                        minhasdicas.append('O país está no continente *{}*'.format(cont))
                         saldo -=7
                   
 
@@ -4019,8 +4029,12 @@ while jogando == False:
                   jogando = False
                   saldo = -9999
 
-                elif pergunta == 'saldo':
+                elif pergunta == 'inventario':
                   print('você tem {} tentativas'.format(saldo))
+                  k = 0
+                  while k < len(minhasdicas):
+                    print(minhasdicas[k])
+                    k +=1
 
                 elif pergunta == 'creditos':
                   print('Desenvolvido por Stefano Lindenbojm e Ricardo Pena, ensinados por Maciel Vidal')

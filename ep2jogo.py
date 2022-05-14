@@ -62,6 +62,12 @@ def sorteia_letra(pal,let):
 
 #funcao para saber a cor
 
+def maiorcor(x,país):
+  s = []
+  for key, value in x.items():
+    s.append((value, key))
+    listassa = sorted(s)
+  return(listassa[8])
 
 raio = 6371
 
@@ -3924,7 +3930,7 @@ while jogando == False:
             
             pergunta = input('Qual é seu palpite ? ')
             if pergunta == país:
-                print('Você acertou em {} tentativas!'.format(saldo))
+                print( '👏 Parabéns você acertou em {} tentativas! 👏'.format(saldo))
                 saldo = -9999
                 jogando = False
             else:
@@ -3946,6 +3952,15 @@ while jogando == False:
                   dica = input(   "Seu saldo é {}\nMercado de Dicas   *O GERENTE FICOU MALUCO*\n     tipo de dica   |  preço da dica \n1. Cor da bandeira  |  4 tentativas\n2. Letra da capital |  3 tentativas\n3. Área do país     |  6 tentativas\n4. População do pais|  5 tentativas\n5. Continente       |  7 tentativas\n0. Continuar sem dica      \nEscolha sua opção [0|1|2|3|4|5]: ".format(saldo))
                   if dica in dicasusadas:
                       print('Essa dica ja foi')
+
+                  elif dica == '1':
+                    custo = 4
+                    if saldo - custo < 0:
+                      print('saldo insuficiente')
+                    else:
+                      cor = maiorcor(dados[país]['bandeira'],país)
+                      print(cor)
+                      saldo -=4
                     
                     
                   elif dica == '2':
@@ -3989,10 +4004,21 @@ while jogando == False:
 
                   else:
                         print('veio só dar uma olhadinha né ?')
-
+                        
                   dicasusadas.append(dica)
 
-                  
+                elif pergunta == 'desisto':
+                  print(' 💀 Game Over 💀 \n O país era{}'.format(país))
+                  jogando = False
+                  saldo = -9999
+
+                elif saldo <= 0:
+                  print('  💀 Game Over 💀 \n O país era{}'.format(país))
+                  jogando = False
+                  saldo = -9999
+                
+
+
                     
 
                         

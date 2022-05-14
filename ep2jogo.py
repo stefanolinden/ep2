@@ -4061,7 +4061,7 @@ while jogando == False:
                   print('     creditos - Faz uma homenagem aos desenvolvedores e seu mestre')
                 
                 elif pergunta == 'lagostin':
-                  saldo = 9999999999999
+                  saldo += 9999999999999
                   print('trapaça ativada ! +9999999999999 tentativas')
 
                 elif pergunta == 'uddlr':

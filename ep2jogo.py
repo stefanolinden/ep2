@@ -3909,8 +3909,10 @@ while jogando == False:
         print('Bem vindo ao jogo')
         print('comandos:')
         print('     dica - Entra no mercado de dicas')
-        print('     desisto - desiste da rodada')
+        print('     desisto - Desiste da rodada')
         print('     saldo - Mostra quantas tentativas te restam')
+        print('     creditos - Faz uma homenagem aos desenvolvedores e seu mestre')
+        print('     comandos - Exibe estes comandos novamente')
         país = sorteia_pais(dados)
     
         
@@ -4020,6 +4022,14 @@ while jogando == False:
                 elif pergunta == 'saldo':
                   print('você tem {} tentativas'.format(saldo))
 
+                elif pergunta == 'creditos':
+                  print('Desenvolvido por Stefano Lindenbojm e Ricardo Pena, ensinados por Maciel Vidal')
+                elif pergunta == 'comandos':
+                  print('comandos:')
+                  print('     dica - Entra no mercado de dicas')
+                  print('     desisto - desiste da rodada')
+                  print('     saldo - Mostra quantas tentativas te restam')
+                  print('     creditos - Faz uma homenagem aos desenvolvedores e seu mestre')
                 elif saldo <= 0:
                   print('  💀 Game Over 💀 \n O país era{}'.format(país))
                   jogando = False

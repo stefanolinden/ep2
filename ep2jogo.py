@@ -10,6 +10,7 @@ def normaliza(d1):
 
 #Sorteando Países
 import random
+from re import S
 
 def sorteia_pais(d1):
     listatop = list(d1.keys())
@@ -3910,20 +3911,22 @@ while jogando == False:
 
         
 
-
+        ordem  = []
+        jafoi = []
+        dicasusadas = []
 
 
         while saldo  > 0:
             
-            ordem  = []
-            jafoi = []
+        
 
 
             
-            pergunta = input('Qual é seu palpite ?')
+            pergunta = input('Qual é seu palpite ? ')
             if pergunta == país:
-                print('Você Acertou !')
+                print('Você acertou em {} tentativas!'.format(saldo))
                 saldo = -9999
+                jogando = False
             else:
                 if pergunta in dados:
                     if pergunta not in jafoi:
@@ -3934,13 +3937,73 @@ while jogando == False:
                             print(ped[0] + ' : ' + '{:.2f} km'.format(ped[1]))
                         saldo -= 1
                         print('você tem {} tentativas'.format(saldo))
-                        print(pergunta)
-                        print(país)
+                        
                     else:
                         print('Esse país ja foi')
+
+                elif pergunta == 'dica':
+
+                  dica = input(   "Seu saldo é {}\nMercado de Dicas   *O GERENTE FICOU MALUCO*\n     tipo de dica   |  preço da dica \n1. Cor da bandeira  |  4 tentativas\n2. Letra da capital |  3 tentativas\n3. Área do país     |  6 tentativas\n4. População do pais|  5 tentativas\n5. Continente       |  7 tentativas\n0. Continuar sem dica      \nEscolha sua opção [0|1|2|3|4|5]: ".format(saldo))
+                  if dica in dicasusadas:
+                      print('Essa dica ja foi')
                     
+                    
+                  elif dica == '2':
+                      custo = 2
+                      if saldo - custo < 0:
+                        print('saldo insuficiente')
+                      else:
+                        letra = sorteia_letra(país,['.', ',', '-', ';', ' '])
+                        print('sua letra é: {}'.format(letra))
+                        saldo -=3
+                  elif dica == '3':
+                      custo = 6
+                      if saldo - custo < 0:
+                        print('saldo insuficiente')
+                      
+                      else:
+                        áreap = str(dados[país]['area'])
+                        print('A área do país é de {} km quadrados'.format(áreap))
+                        saldo -= 6
+                  elif dica == '4':
+                      custo = 5
+
+                      if saldo - custo < 0:
+                        print('saldo insuficiente')
+
+                      else:
+                        pop = str(dados[país]['populacao'])
+                        print('O país possui {} habitantes'.format(pop))
+                        saldo -=5
+
+                  elif dica == '5':
+                      custo = 7
+                      if saldo - custo < 0:
+                        print('saldo insuficiente')
+
+                      else:
+                        cont = str(dados[país]['continente'])
+                        print('O país está no continente *{}*'.format(cont))
+                        saldo -=7
+                  
+
+                  else:
+                        print('veio só dar uma olhadinha né ?')
+
+                  dicasusadas.append(dica)
+
+                  
+                    
+
+                        
+
+                
+                
+                
                 else:
                     print('eu não conheço esse país')
+                    
+                
                     
 
 

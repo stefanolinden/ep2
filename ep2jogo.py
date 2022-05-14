@@ -3934,7 +3934,7 @@ while jogando == False:
 
         
                   
-        while saldo  > 0:
+        while saldo  > 0 and saldo != 35:
           
             
         
@@ -3946,8 +3946,9 @@ while jogando == False:
             if pergunta == país:
                 suastent += 1
                 print(  '👏 Parabéns você acertou em {} tentativas! 👏'.format(suastent))
-                saldo = -9999
+                saldo = 35
                 jogando = False
+                #optei por não contar o preço da dica como tentativa, caso eu quisse, bastava acrescentar 'suastent += custo' emabaixo de cada dica
             else:
                 if pergunta in dados:
                     if pergunta not in jafoi:
@@ -3979,6 +3980,7 @@ while jogando == False:
                       print('A cor e proporção dessa bandeira são de {}'.format(cor))
                       minhasdicas.append('A cor e proporção dessa bandeira são de {}'.format(cor))
                       saldo -=4
+                      #suastent += custo
                     
                     
                   elif dica == '2':
@@ -3990,6 +3992,7 @@ while jogando == False:
                         print('A letra da capital é: {}'.format(letra))
                         minhasdicas.append('sua letra é: {}'.format(letra))
                         saldo -=3
+                        #suastent += custo
 
                   elif dica == '3':
                       custo = 6
@@ -4001,6 +4004,7 @@ while jogando == False:
                         print('A área do país é de {} km quadrados'.format(áreap))
                         minhasdicas.append('A área do país é de {} km quadrados'.format(áreap))
                         saldo -= 6
+                        #suasten += custo
                   
                   elif dica == '4':
                       custo = 5
@@ -4013,6 +4017,7 @@ while jogando == False:
                         print('O país possui {} habitantes'.format(pop))
                         minhasdicas.append('O país possui {} habitantes'.format(pop))
                         saldo -=5
+                        #suastent += custo
 
                   elif dica == '5':
                       custo = 7
@@ -4024,6 +4029,7 @@ while jogando == False:
                         print('O país está no continente *{}*'.format(cont))
                         minhasdicas.append('O país está no continente *{}*'.format(cont))
                         saldo -=7
+                        #suastent += custo
                   
 
                   elif dica == '0':
@@ -4036,7 +4042,7 @@ while jogando == False:
                 elif pergunta == 'desisto':
                   print('       💀 Game Over 💀 \n      O país era {}'.format(país))
                   jogando = False
-                  saldo = -9999
+                  saldo = 35
 
                 elif pergunta == 'inventario':
                   print('você tem {} tentativas'.format(saldo))
@@ -4078,12 +4084,16 @@ while jogando == False:
                   print('       Suas tentativas acabaram')
                   print('           💀 Game Over 💀 \n        O país era {}'.format(país))
                   
-                  saldo = -9999
+                  saldo = 35
                   jogando = False    
                 
                 
     else:
-      print('Digite start e não "{}"'.format(strt))            
+      print('Digite start e não "{}"'.format(strt))   
+
+
+
+         
 
                  
 

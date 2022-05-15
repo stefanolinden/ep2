@@ -4057,7 +4057,7 @@ while jogando == False:
                   print('comandos:')
                   print('     dica - Entra no mercado de dicas')
                   print('     desisto - desiste da rodada')
-                  print('     saldo - Mostra quantas tentativas te restam')
+                  print('     inventario - Mostra quantas tentativas te restam e as dicas até então obtidas')
                   print('     creditos - Faz uma homenagem aos desenvolvedores e seu mestre')
                 
                 elif pergunta == 'lagostin':
